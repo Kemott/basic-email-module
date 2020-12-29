@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/Kemott/basic-email-module.svg?branch=master)](https://travis-ci.com/Kemott/basic-email-module)
-[![npm version](https://badge.fury.io/js/%40sendgrid%2Fclient.svg)](https://www.npmjs.com/org/sendgrid)
 [![codecov](https://codecov.io/gh/Kemott/basic-email-module/branch/master/graph/badge.svg?token=EP7S3RFXYZ)](https://codecov.io/gh/Kemott/basic-email-module)
 
 **Module for all Node projects to simplify sending mails**
