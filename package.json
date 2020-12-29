@@ -1,0 +1,32 @@
+{
+  "name": "basic-email-module",
+  "version": "1.0.0",
+  "description": "Module for all Node projects to simplify sending mails",
+  "main": "basic-email-module-js",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "html-to-formatted-text": "2.7.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kemott/basic-email-module.git"
+  },
+  "keywords": [
+    "email",
+    "mail",
+    "email-types",
+    "simple-email"
+  ],
+  "author": "Tomasz Burzyński",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kemott/basic-email-module/issues"
+  },
+  "homepage": "https://github.com/Kemott/basic-email-module#readme"
+}
