@@ -1,6 +1,6 @@
 {
   "name": "basic-email-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module for all Node projects to simplify sending mails",
   "main": "basic-email-module-js",
   "dependencies": {
