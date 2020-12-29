@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.com/Kemott/basic-email-module.svg?branch=master)](https://travis-ci.com/Kemott/basic-email-module)
 [![npm version](https://badge.fury.io/js/%40sendgrid%2Fclient.svg)](https://www.npmjs.com/org/sendgrid)
-[![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-nodejs.svg)](https://github.com/sendgrid/sendgrid-nodejs/graphs/contributors)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-nodejs/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-nodejs)
+[![codecov](https://codecov.io/gh/Kemott/basic-email-module/branch/master/graph/badge.svg?token=EP7S3RFXYZ)](https://codecov.io/gh/Kemott/basic-email-module)
 
 [Twilio SendGrid Docs](https://sendgrid.com/docs/index.html)
 
