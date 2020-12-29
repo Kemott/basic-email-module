@@ -1,1 +1,3 @@
 node_modules
+__tests__/sendEmail.test.js
+testProperSending.js
