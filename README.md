@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.com/Kemott/basic-email-module.svg?branch=master)](https://travis-ci.com/Kemott/basic-email-module)
 [![npm version](https://badge.fury.io/js/%40sendgrid%2Fclient.svg)](https://www.npmjs.com/org/sendgrid)
-[![Email Notifications Badge](https://dx.sendgrid.com/badge/nodejs)](https://dx.sendgrid.com/newsletter/nodejs)
-[![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-nodejs.svg)](https://github.com/sendgrid/sendgrid-nodejs/graphs/contributors)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-nodejs/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-nodejs)
