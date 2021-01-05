@@ -5,7 +5,8 @@
   "main": "basic-email-module-js",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
-    "html-to-formatted-text": "2.7.0"
+    "html-to-formatted-text": "2.7.0",
+    "jsdoc": "^3.6.6"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
