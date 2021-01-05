@@ -43,9 +43,10 @@ module.exports = class Mailer/** @lends Mailer */{
     */
 
     /**
-     * Function sending email constructed with rest of this class methods
+     * Method sending email constructed with rest of this class methods
      * @async
-     * @param {sendEmailCallback} [next] - callback function - optional 
+     * @param {sendEmailCallback} [next] - callback function - optional
+     * @returns {Object} - error object (containing message about error) or mail params (if function end properly)(Everything like params of the "next" callback)
      */
     async sendEmail(next){
         let result = {};
@@ -74,6 +75,12 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Method setting recipient for email. It checks if given value is proper email and if not, throwing error.
+     * @see checkEmail
+     * @param {string} to - proper email address
+     * @throws Will throw an error when given value don't match email regex 
+     */
     setRecipient(to){
         if(this.checkEmail(to)){
             this.to = to;
@@ -82,10 +89,20 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Getter method for recipient
+     * @returns {(string|undefined)} - returns setted email address or undefined if it isn't set properly 
+     */
     getRecipient(){
         return this.to;
     }
 
+    /**
+     * Method setting sender for email. It checks if given value is proper email and if not, throwing error.
+     * @see checkEmail
+     * @param {string} from - proper email address
+     * @throws Will throw an error when given value don't match email regex
+     */
     setSender(from){
         if(this.checkEmail(from)){
             this.from = from;
@@ -94,10 +111,20 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Getter method for sender
+     * @returns {(string|undefined)} - returns setted email address or undefined if it isn't set properly
+     */
     getSender(){
         return this.from;
     }
 
+    /**
+     * Method setting subject for email. Before setting it removes all scripts from subject.
+     * @see removeScripts
+     * @param {string} subject - string to set for subject
+     * @throws Will throw an error if given variable is undefined
+     */
     setSubject(subject){
         if(subject === undefined){
             throw new Error('The subject of the message cannot be empty');
@@ -106,10 +133,20 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Getter method for subject
+     * @returns {(string|undefined)} - returns setted message subject or undefined if it isn't set properly
+     */
     getSubject(){
         return this.subject;
     }
 
+    /**
+     * Method setting html content of email. Before setting it removes all script from variable.
+     * @param {string} html - html formatted text
+     * @see removeScripts
+     * @throws Will throw an error if variable is undefined
+     */
     setContent(html){
         if(html === undefined){
             throw new Error('The content of the message cannot be undefined');
@@ -118,10 +155,19 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Getter method for html content
+     * @returns {(string|undefined)} - returns setted message html or undefined if it isn't set properly
+     */
     getContent(){
         return this.html;
     }
 
+    /**
+     * Checking if given string is an email
+     * @param {string} email
+     * @returns {boolean} true if it proper email, false if it not match regex or is undefined
+     */
     checkEmail(email){
         let rgx = new RegExp('^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@' +
             '[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?' +
@@ -133,6 +179,11 @@ module.exports = class Mailer/** @lends Mailer */{
         }
     }
 
+    /**
+     * Removing all scripts from given text
+     * @param {string} txt - text to remove scripts
+     * @returns {string} - text stripped from scripts
+     */
     removeScripts(txt){
         let pos = txt.search(/<script/i);
         let pos2 = txt.search(/<\/script>/i);
