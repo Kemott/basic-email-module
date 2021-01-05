@@ -1,5 +1,8 @@
 /**
-* @module basic-email-module
+* @module Basic-Email-Module
+* @since 1.0.0
+* @requires @sendgrid/mail
+* @requires @html-to-formatted-text
 */
 const mail = require('@sendgrid/mail');
 const htmlToFormattedText = require('html-to-formatted-text');
