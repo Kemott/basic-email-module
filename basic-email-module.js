@@ -1,6 +1,9 @@
 const mail = require('@sendgrid/mail');
 const htmlToFormattedText = require('html-to-formatted-text');
 
+/**
+* Main class of module
+*/
 module.exports = class Mailer{
 
     constructor(API_KEY){
