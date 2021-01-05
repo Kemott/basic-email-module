@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>basic-email-module.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-basic-email-module.html">basic-email-module</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-basic-email-module.html">basic-email-module</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">basic-email-module.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+* @module basic-email-module
+*/
+const mail = require('@sendgrid/mail');
+const htmlToFormattedText = require('html-to-formatted-text');
+
+/**
+* Main class of module
+*/
+module.exports = class Mailer{
+
+    constructor(API_KEY){
+        if( API_KEY === undefined || API_KEY == ""){
+            throw new Error("API KEY can't be empty!");
+        }
+        if(API_KEY.substring(0,3) != "SG."){
+            throw new Error("API KEY must start with SG.");
+        }
+        this.sendgrid_api_key = API_KEY;
+        mail.setApiKey(this.sendgrid_api_key);
+        this.mail = mail;
+        this.html = "";
+    }
+
+    async sendEmail(next){
+        let result = {};
+        if(this.to == undefined || this.from == undefined){
+            result.error = true;
+            result.message = "Email must have at least sender and one recipient";
+            return result;
+        }
+        const msg = {
+            to: this.to,
+            from: this.from,
+            subject: this.subject,
+            text: htmlToFormattedText(this.html),
+            html: this.html
+        };
+        try{
+            await this.mail.send(msg);
+            result = msg;
+        }catch(error){
+            result = error;
+        };
+        if(next != undefined){
+            next(result);
+        }else{
+            return result;
+        }
+    }
+
+    setRecipient(to){
+        if(this.checkEmail(to)){
+            this.to = to;
+        }else{
+            throw new Error('Wrong recipient');
+        }
+    }
+
+    getRecipient(){
+        return this.to;
+    }
+
+    setSender(from){
+        if(this.checkEmail(from)){
+            this.from = from;
+        }else{
+            throw new Error('Wrong sender');
+        }
+    }
+
+    getSender(){
+        return this.from;
+    }
+
+    setSubject(subject){
+        if(subject === undefined){
+            throw new Error('The subject of the message cannot be empty');
+        }else{
+            this.subject = this.removeScripts(subject);
+        }
+    }
+
+    getSubject(){
+        return this.subject;
+    }
+
+    setContent(html){
+        if(html === undefined){
+            throw new Error('The content of the message cannot be undefined');
+        }else{
+            this.html = this.removeScripts(html);
+        }
+    }
+
+    getContent(){
+        return this.html;
+    }
+
+    checkEmail(email){
+        let rgx = new RegExp('^[a-zA-Z0-9.!#$%&amp;\'*+\/=?^_`{|}~-]+@' +
+            '[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?' +
+            '(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$');
+        if(email == undefined || !rgx.test(email)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    removeScripts(txt){
+        let pos = txt.search(/&lt;script/i);
+        let pos2 = txt.search(/&lt;\/script>/i);
+        let part1 = '';
+        let part2 = '';
+        let result = txt;
+        while(pos > -1){
+            part1 = result.substring(0,pos);
+            part2 = result.substring(pos2+9);
+            result = part1 + part2;
+            pos = result.search('&lt;script');
+            pos2 = result.search('&lt;/script>');
+        }
+        result = result.replace(/\s+/g,' ').trim();
+        return result;
+    }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Jan 05 2021 17:48:02 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
