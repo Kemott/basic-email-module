@@ -28,21 +28,6 @@ module.exports = class Mailer/** @lends Mailer */{
     }
 
     /**
-    * Callback possible elements for sendEmail
-    * @callback sendEmailCallback
-    * @param {Object} result - result which senEmail returns
-    * If function goes wrong
-    * @param {boolean} [result.error] - if function failed this is set to true
-    * @param {string} [result.message] - if function failed this contains the message about error
-    * If function ends properly
-    * @param {string} [result.to] - if function end properly this contains email recipient
-    * @param {string} [result.from] - if function end properly this contains email sender
-    * @param {string} [result.subject] - if function end properly this contains email subject
-    * @param {string} [result.text] - if function end properly this contains email text (non-html)
-    * @param {string} [result.html] - if function end properly this contains email text (with html tags)
-    */
-
-    /**
      * Method sending email constructed with rest of this class methods
      * @async
      * @param {sendEmailCallback} [next] - callback function - optional
@@ -200,4 +185,19 @@ module.exports = class Mailer/** @lends Mailer */{
         result = result.replace(/\s+/g,' ').trim();
         return result;
     }
+
+    /**
+    * Callback possible elements for sendEmail
+    * @callback sendEmailCallback
+    * @param {Object} result - result which senEmail returns
+    * If function goes wrong
+    * @param {boolean} [result.error] - if function failed this is set to true
+    * @param {string} [result.message] - if function failed this contains the message about error
+    * If function ends properly
+    * @param {string} [result.to] - if function end properly this contains email recipient
+    * @param {string} [result.from] - if function end properly this contains email sender
+    * @param {string} [result.subject] - if function end properly this contains email subject
+    * @param {string} [result.text] - if function end properly this contains email text (non-html)
+    * @param {string} [result.html] - if function end properly this contains email text (with html tags)
+    */
 }
