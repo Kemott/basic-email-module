@@ -29,7 +29,6 @@ jobs:
         uses: andstor/jsdoc-action@v1.2.0
         with:
           output_dir: ./out
-          config_file: conf.json
           template: minami
           front_page: README.md
           
