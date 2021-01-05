@@ -28,7 +28,6 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1.2.0
         with:
-          source_dir: ./src
           output_dir: ./out
           config_file: conf.json
           template: minami
