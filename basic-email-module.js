@@ -9,7 +9,7 @@ const htmlToFormattedText = require('html-to-formatted-text');
 
 module.exports = class Mailer{
     /**
-     * @constructor
+     * @class Mailer
      * @param { string } API_KEY - SendGrid API_KEY
      * @throws Will throw an error if sent API_KEY is empty.
      * @throws Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
