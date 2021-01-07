@@ -7,13 +7,13 @@
 const mail = require('@sendgrid/mail');
 const htmlToFormattedText = require('html-to-formatted-text');
 
+/**
+* @class Mailer
+* @param { string } API_KEY - SendGrid API_KEY
+* @throws Will throw an error if sent API_KEY is empty.
+* @throws Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
+*/
 module.exports = class Mailer{
-    /**
-     * @class Mailer
-     * @param { string } API_KEY - SendGrid API_KEY
-     * @throws Will throw an error if sent API_KEY is empty.
-     * @throws Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
-     */
     constructor(API_KEY){
         if( API_KEY === undefined || API_KEY == " "){
             throw new Error("API KEY can't be empty!");
