@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Basic-Email-Module - Documentation</title>
+    <title>Mailer - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Basic-Email-Module</h1>
+    <h1 class="page-title">Mailer</h1>
     
 
     
@@ -41,6 +41,11 @@
 
 <header>
     
+        <h2>
+            <span class="ancestors"><a href="module-Basic-Email-Module.html">Basic-Email-Module</a>~</span>
+        
+        Mailer
+        </h2>
         
     
 </header>
@@ -49,30 +54,167 @@
     <div class="container-overview">
     
         
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="Mailer"><span class="type-signature"></span>new Mailer<span class="signature">(API_KEY)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basic-email-module.js.html">basic-email-module.js</a>, <a href="basic-email-module.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>API_KEY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                SendGrid API_KEY
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-throws">
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw an error if sent API_KEY is empty.
+    
+    </div>
+
+</li>
+    
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
+    
+    </div>
+
+</li>
+    </ul>
+</div>
+
+
+
+
+
+</div>
     
     </div>
 
     
 
     
-        <h3 class="subsection-title">Requires</h3>
 
-        <ul>
-            <li>module:@sendgrid/mail</li>
-        
-            <li>module:@html-to-formatted-text</li>
-        </ul>
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-Basic-Email-Module-Mailer.html">Mailer</a></dt>
-            <dd></dd>
-        </dl>
     
 
      
