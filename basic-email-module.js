@@ -8,7 +8,7 @@ const mail = require('@sendgrid/mail');
 const htmlToFormattedText = require('html-to-formatted-text');
 
 /**
-* @class Mailer
+* @class module:Basic-Email-Module/Mailer
 * @param { string } API_KEY - SendGrid API_KEY
 * @throws Will throw an error if sent API_KEY is empty.
 * @throws Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
@@ -29,7 +29,7 @@ module.exports = class Mailer{
 
     /**
      * Method sending email constructed with rest of this class methods
-     * @method Mailer
+     * @method module:Basic-Email-Module/Mailer#sendEmail
      * @async
      * @param {sendEmailCallback} [next] - callback function - optional
      * @returns {Object} - error object (containing message about error) or mail params (if function end properly)(Everything like params of the "next" callback)
