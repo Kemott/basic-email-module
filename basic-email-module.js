@@ -13,7 +13,8 @@ const htmlToFormattedText = require('html-to-formatted-text');
 * @throws Will throw an error if sent API_KEY is empty.
 * @throws Will throw an error if sent API_KEY doesn't start with 'SG.' (Isn't SendGrid API_KEY).
 */
-module.exports = class Mailer{
+
+class Mailer{
     constructor(API_KEY){
         if( API_KEY === undefined || API_KEY == " "){
             throw new Error("API KEY can't be empty!");
@@ -202,3 +203,5 @@ module.exports = class Mailer{
     * @param {string} [result.html] - if function end properly this contains email text (with html tags)
     */
 }
+
+module.exports = Mailer;
