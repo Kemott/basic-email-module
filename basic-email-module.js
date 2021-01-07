@@ -29,7 +29,7 @@ module.exports = class Mailer{
 
     /**
      * Method sending email constructed with rest of this class methods
-     * @method Mailer#sendEmail
+     * @method
      * @async
      * @param {sendEmailCallback} [next] - callback function - optional
      * @returns {Object} - error object (containing message about error) or mail params (if function end properly)(Everything like params of the "next" callback)
